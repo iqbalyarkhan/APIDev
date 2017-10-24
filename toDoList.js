@@ -52,6 +52,7 @@ server.route([
         //In the browser, based on what the handler
         //is set up to do, the appropriate response
         //would be displayed.
+        //Without index, this would display all items
         path: '/api/v1/list',
 
         //Return response through the handler
@@ -63,6 +64,22 @@ server.route([
 
         }
 
+    },
+    {
+        method: 'GET',
+
+        //Same as above except:
+        //With the index, ths would return the specific item
+        path: '/api/v1/list/{index}',
+
+        //Return response through the handler
+        handler: function(request, reply){
+                
+            //To retrieve value from the list by index
+            reply(list[request.params.index]);
+
+
+        }
     }
 
 ]);
