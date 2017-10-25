@@ -24,7 +24,6 @@ var list=[
     }
 
 
-
 ]
 
 //Creating the server object and connecting to the
@@ -65,6 +64,37 @@ server.route([
         }
 
     },
+
+    {
+        method: 'POST',
+        path: '/api/v1/list',
+
+        //We're taking the information sent by the client
+        //and creating a new task ie updating the list
+        //The header of the POST request would contain
+        //this information
+        handler: function(request, reply){
+            
+            //Creating a new task where the task is 
+            //retrieved from the request
+            //and a priority that we'll pull from priority
+            //This new information will be stored in the new 
+            //object called newTask
+            newTask = {"task": request.payload.task, 
+                    "priority": request.payload.owner};
+
+            //Adding the newly craeted task object to the list
+            list.push(newTask);
+
+            //The reply must also deliver a success message along with
+            //the newly updated list:
+            //Code 201 is the created code 
+            reply(list).code(201);
+
+        }
+
+    },
+
     {
         method: 'GET',
 
