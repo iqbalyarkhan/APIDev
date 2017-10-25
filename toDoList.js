@@ -76,7 +76,7 @@ server.route([
         handler: function(request, reply){
                 
             //To retrieve value from the list by index
-            reply(list[request.params.index]);
+            reply(list[request.params.index - 1]);
 
 
         }
