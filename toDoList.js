@@ -80,8 +80,7 @@ server.route([
             //and a priority that we'll pull from priority
             //This new information will be stored in the new 
             //object called newTask
-            newTask = {"task": request.payload.task, 
-                    "priority": request.payload.owner};
+            newTask = {"task":request.payload.task,"priority": request.payload.priority};
 
             //Adding the newly craeted task object to the list
             list.push(newTask);
@@ -103,8 +102,7 @@ server.route([
         handler: function(request, reply){
 
             //Gathering information for updating the task
-            newTask = {"task": request.payload.task, 
-                    "priority": request.payload.owner};
+            newTask = {"task": request.payload.task,"priority": request.payload.priority};
             
             //Replacing old task info with new info    
             list[request.params.index-1] = newTask;
