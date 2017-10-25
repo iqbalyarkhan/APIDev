@@ -7,19 +7,19 @@ var list=[
     {
 
         "task" : "buy grocery",
-        "Priority" : "High"
+        "priority" : "High"
 
     },
     {
 
         "task" : "Pick laundry",
-        "Priority" : "Medium"
+        "priority" : "Medium"
 
     },
     {
 
         "task" : "Watch soccer",
-        "Priority" : "Low"
+        "priority" : "Low"
 
     }
 
