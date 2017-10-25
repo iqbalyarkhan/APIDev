@@ -96,10 +96,48 @@ server.route([
     },
 
     {
+        //Updating an already existing task
+        method: 'PUT',
+        path: '/api/v1/list/{index}',
+
+        handler: function(request, reply){
+
+            //Gathering information for updating the task
+            newTask = {"task": request.payload.task, 
+                    "priority": request.payload.owner};
+            
+            //Replacing old task info with new info    
+            list[request.params.index-1] = newTask;
+
+            reply(list[request.params.index - 1]);
+
+        }
+
+    },
+
+    {
+        method: 'DELETE',
+
+        //To return the specific item
+        path: '/api/v1/list/{index}',
+
+        //Return response through the handler
+        handler: function(request, reply){
+                
+            //Deletes the requested item
+            delete list[request.params.index-1];
+
+            //No need to reply with the list, reply 
+            //with 204 meaning no content
+            reply().code(204);
+
+        }
+    },
+
+    {
         method: 'GET',
 
-        //Same as above except:
-        //With the index, ths would return the specific item
+        //To return the specific item
         path: '/api/v1/list/{index}',
 
         //Return response through the handler
@@ -107,7 +145,6 @@ server.route([
                 
             //To retrieve value from the list by index
             reply(list[request.params.index - 1]);
-
 
         }
     }
