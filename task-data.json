@@ -1,12 +1,12 @@
 [
       {
 	"index":1,
-        "task":"Walk the cat",
-        "owner":"Kirsten"
+        "task":"wash the car",
+        "priority":"Medium"
       },
       {
 	"index":2,
-        "task":"Water the plants",
-        "owner":"Kirsten"
+        "task":"Do laundry",
+        "priority":"High"
       }
 ]
